@@ -1,9 +1,9 @@
 package com.example.EnumDemo.entity;
 
 import com.example.EnumDemo.enumC.Color;
+import com.example.EnumDemo.enumC.Size;
 import com.example.EnumDemo.enumC.Type;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DressEntity {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long prod_id;
     private String brand;
     private Color color;
-    private Long size;
+    private Size size;
     private Type type;
 }
