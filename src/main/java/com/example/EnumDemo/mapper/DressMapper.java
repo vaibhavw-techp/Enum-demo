@@ -1,11 +1,14 @@
 package com.example.EnumDemo.mapper;
 
 import com.example.EnumDemo.dto.DressDto;
+import com.example.EnumDemo.dto.showDressDto;
 import com.example.EnumDemo.entity.DressEntity;
 import com.example.EnumDemo.enumC.Size;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface DressMapper {
@@ -17,6 +20,12 @@ public interface DressMapper {
     @Mapping(target = "color", source = "dressDto.color")
     @Mapping(target = "type", source = "dressDto.type")
     DressEntity dtoToEntity(DressDto dressDto);
+
+    @Mapping(target = "size",source = "dressDto.size")
+    @Mapping(target = "brand", source = "dressDto.brand")
+    @Mapping(target = "color", source = "dressDto.color")
+    @Mapping(target = "type", source = "dressDto.type")
+    List<showDressDto> entityToShowDressDto(List<DressEntity> dressEntity);
 
     @Named("getDressSize")
     default Size getDressSize(Long size){

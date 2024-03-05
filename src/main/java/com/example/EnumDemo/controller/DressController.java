@@ -1,15 +1,13 @@
 package com.example.EnumDemo.controller;
 
 import com.example.EnumDemo.dto.DressDto;
-import com.example.EnumDemo.entity.DressEntity;
-import com.example.EnumDemo.mapper.DressMapper;
+import com.example.EnumDemo.dto.showDressDto;
 import com.example.EnumDemo.repository.DressRepository;
 import com.example.EnumDemo.service.DressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/dresses")
@@ -27,7 +25,7 @@ public class DressController {
     }
 
     @GetMapping
-    public List<DressEntity> showDresses(){
+    public List<showDressDto> showDresses(){
         return dressService.showDresses();
     }
 

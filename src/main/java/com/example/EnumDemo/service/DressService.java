@@ -2,6 +2,7 @@ package com.example.EnumDemo.service;
 
 import com.example.EnumDemo.dto.DressDto;
 import com.example.EnumDemo.entity.DressEntity;
+import com.example.EnumDemo.dto.showDressDto;
 import com.example.EnumDemo.mapper.DressMapper;
 import com.example.EnumDemo.repository.DressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,9 @@ public class DressService {
         return dressDto;
     }
 
-    public List<DressEntity> showDresses(){
-        return dressRepository.findAll()
-                .stream().collect(Collectors.toList());
+    public List<showDressDto> showDresses(){
+        List<showDressDto> returnDresses = dressMapper.entityToShowDressDto(dressRepository.findAll()
+                .stream().collect(Collectors.toList()));
+        return returnDresses;
     }
 }
