@@ -13,6 +13,7 @@ public class DressDto {
 
     private String brand;
     private Color color;
-    private Long size;
+    public Long size;
     private Type type;
+    private double price;
 }

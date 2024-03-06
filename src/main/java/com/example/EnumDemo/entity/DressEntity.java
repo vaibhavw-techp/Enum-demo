@@ -18,7 +18,14 @@ public class DressEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long prod_id;
     private String brand;
+
+    @Enumerated(EnumType.STRING)
     private Color color;
+
+    @Enumerated(EnumType.STRING)
     private Size size;
+
+    @Enumerated(EnumType.STRING)
     private Type type;
+    private double price;
 }

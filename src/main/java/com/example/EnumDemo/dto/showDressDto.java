@@ -15,4 +15,5 @@ public class showDressDto {
     private Color color;
     private Size size;
     private Type type;
+    private double price;
 }
