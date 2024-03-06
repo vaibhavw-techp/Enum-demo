@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/dresses")
@@ -27,11 +26,6 @@ public class DressController {
     public DressDto addDress(@RequestBody DressDto dressDto){
        return dressService.addDress(dressDto);
     }
-
-//    @GetMapping
-//    public List<showDressDto> showDresses(){
-//        return dressService.showDresses();
-//    }
 
     @GetMapping()
     public List<showDressDto> filterDresses(@RequestParam(required = false) List<Color> colors, @RequestParam(required = false) Color color,
