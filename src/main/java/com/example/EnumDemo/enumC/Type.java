@@ -1,13 +1,13 @@
 package com.example.EnumDemo.enumC;
 
 public enum Type {
-    Tshirt("Tshirt"),
-    Formal("Formal"),
-    Jacket("Jacket"),
-    Jerkin("Jerkin"),
-    Polo("Polo"),
-    Hoody("Hoody"),
-    Turtleneck("Turtleneck");
+    TSHIRT("Tshirt"),
+    FORMAL("Formal"),
+    JACKET("Jacket"),
+    JERKIN("Jerkin"),
+    POLO("Polo"),
+    HOODY("Hoody"),
+    TURTLENECK("Turtleneck");
 
     private String value;
 

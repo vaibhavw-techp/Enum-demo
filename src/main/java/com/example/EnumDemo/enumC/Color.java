@@ -1,14 +1,14 @@
 package com.example.EnumDemo.enumC;
 
 public enum Color {
-    White("white"),
-    Black("Black"),
-    Yellow("Yellow"),
-    Pink("Pink"),
-    Green("Green"),
-    Grey("Grey"),
-    Red("Red"),
-    Blue("Blue");
+    WHITE("white"),
+    BLACK("Black"),
+    YELLOW("Yellow"),
+    PINK("Pink"),
+    GREEN("Green"),
+    GREY("Grey"),
+    RED("Red"),
+    BLUE("Blue");
 
     private String value;
 
