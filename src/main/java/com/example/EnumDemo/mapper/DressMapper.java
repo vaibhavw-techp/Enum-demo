@@ -1,7 +1,7 @@
 package com.example.EnumDemo.mapper;
 
 import com.example.EnumDemo.dto.DressDto;
-import com.example.EnumDemo.dto.ShowDressDto;
+import com.example.EnumDemo.dto.DressInfoDto;
 import com.example.EnumDemo.entity.DressEntity;
 import com.example.EnumDemo.enumC.Size;
 import org.mapstruct.Mapper;
@@ -25,7 +25,9 @@ public interface DressMapper {
     @Mapping(target = "color", source = "dressEntity.color")
     @Mapping(target = "type", source = "dressEntity.type")
     @Mapping(target = "price", source = "dressEntity.price")
-    ShowDressDto entityToShowDressDto(DressEntity dressEntity);
+    DressInfoDto entityToShowDressDto(DressEntity dressEntity);
+
+    List<DressInfoDto> convertDressEntitiesToDressInfoDtos(List<DressEntity> dressEntities);
 
     @Named("getDressSize")
     default Size getDressSize(Long size){

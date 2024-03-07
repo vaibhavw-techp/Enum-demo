@@ -9,14 +9,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "dresses")
+@Table(name = "dress")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DressEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long prod_id;
+    private Long prodId;
     private String brand;
 
     @Enumerated(EnumType.STRING)

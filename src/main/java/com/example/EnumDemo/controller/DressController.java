@@ -1,7 +1,7 @@
 package com.example.EnumDemo.controller;
 
 import com.example.EnumDemo.dto.DressDto;
-import com.example.EnumDemo.dto.ShowDressDto;
+import com.example.EnumDemo.dto.DressInfoDto;
 import com.example.EnumDemo.enumC.Color;
 import com.example.EnumDemo.enumC.Size;
 import com.example.EnumDemo.enumC.Type;
@@ -28,7 +28,7 @@ public class DressController {
     }
 
     @GetMapping()
-    public List<ShowDressDto> filterDresses(@RequestParam(required = false) List<Color> colors, @RequestParam(required = false) Color color,
+    public List<DressInfoDto> filterDresses(@RequestParam(required = false) List<Color> colors, @RequestParam(required = false) Color color,
                                             @RequestParam(required = false) Size size, @RequestParam(required = false) Type type, @RequestParam(required = false) String brand,
                                             @RequestParam(required = false) Double lowerPrice, @RequestParam(required = false) Double upperPrice,
                                             @RequestParam(required = false, defaultValue = "false") boolean notColor,
