@@ -7,7 +7,7 @@ public enum Type {
     JERKIN("Jerkin"),
     POLO("Polo"),
     HOODY("Hoody"),
-    TURTLENECK("Turtleneck");
+    TURTLE_NECK("Turtleneck");
 
     private String value;
 

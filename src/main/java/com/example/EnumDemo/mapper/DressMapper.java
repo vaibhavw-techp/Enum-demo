@@ -20,18 +20,11 @@ public interface DressMapper {
     @Mapping(target = "price", source = "dressDto.price")
     DressEntity dtoToEntity(DressDto dressDto);
 
-//    @Mapping(target = "size",source = "dressDto.size")
-//    @Mapping(target = "brand", source = "dressDto.brand")
-//    @Mapping(target = "color", source = "dressDto.color")
-//    @Mapping(target = "type", source = "dressDto.type")
-//    @Mapping(target = "price", source = "dressDto.price")
-//    List<ShowDressDto> entitiesToShowDressDto(List<DressEntity> dressEntity);
-
-    @Mapping(target = "size",source = "dressDto.size")
-    @Mapping(target = "brand", source = "dressDto.brand")
-    @Mapping(target = "color", source = "dressDto.color")
-    @Mapping(target = "type", source = "dressDto.type")
-    @Mapping(target = "price", source = "dressDto.price")
+    @Mapping(target = "size",source = "dressEntity.size")
+    @Mapping(target = "brand", source = "dressEntity.brand")
+    @Mapping(target = "color", source = "dressEntity.color")
+    @Mapping(target = "type", source = "dressEntity.type")
+    @Mapping(target = "price", source = "dressEntity.price")
     ShowDressDto entityToShowDressDto(DressEntity dressEntity);
 
     @Named("getDressSize")

@@ -31,12 +31,6 @@ public class DressService {
         return dressDto;
     }
 
-    public List<ShowDressDto> showDresses() {
-        List<ShowDressDto> returnDresses = dressMapper.entityToShowDressDto(dressRepository.findAll()
-                .stream().map(dressMapper::entityToShowDressDto).collect(Collectors.toList()));
-        return returnDresses;
-    }
-
     public List<ShowDressDto> filterDresses(List<Color> colors, Color color, Size size, Type type, String brand,
                                             Double lowerPrice, Double upperPrice, boolean notColor,
                                             boolean priceBetween, boolean priceLessThanEqual, boolean priceGreaterThanEqual) {
