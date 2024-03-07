@@ -1,8 +1,8 @@
 package com.example.EnumDemo.service;
 
 import com.example.EnumDemo.dto.DressDto;
+import com.example.EnumDemo.dto.ShowDressDto;
 import com.example.EnumDemo.entity.DressEntity;
-import com.example.EnumDemo.dto.showDressDto;
 import com.example.EnumDemo.enumC.Color;
 import com.example.EnumDemo.enumC.Size;
 import com.example.EnumDemo.enumC.Type;
@@ -31,49 +31,73 @@ public class DressService {
         return dressDto;
     }
 
-    public List<showDressDto> showDresses() {
-        List<showDressDto> returnDresses = dressMapper.entityToShowDressDto(dressRepository.findAll()
-                .stream().collect(Collectors.toList()));
+    public List<ShowDressDto> showDresses() {
+        List<ShowDressDto> returnDresses = dressMapper.entityToShowDressDto(dressRepository.findAll()
+                .stream().map(dressMapper::entityToShowDressDto).collect(Collectors.toList()));
         return returnDresses;
     }
 
-    public List<showDressDto> filterDresses(List<Color> colors, Color color, Size size, Type type, String brand,
+    public List<ShowDressDto> filterDresses(List<Color> colors, Color color, Size size, Type type, String brand,
                                             Double lowerPrice, Double upperPrice, boolean notColor,
                                             boolean priceBetween, boolean priceLessThanEqual, boolean priceGreaterThanEqual) {
         if (colors != null && !colors.isEmpty()) {
-            return dressMapper.entityToShowDressDto(dressRepository.findByColorIn(colors)
-                    .stream().collect(Collectors.toList()));
+            List<DressEntity> dressEntities = dressRepository.findByColorIn(colors);
+            List<ShowDressDto> showDressDtos = dressEntities.stream()
+                    .map(dressMapper::entityToShowDressDto)
+                    .collect(Collectors.toList());
+            return showDressDtos;
         }
 
         if (color != null && size != null && type != null && brand != null) {
-            return dressMapper.entityToShowDressDto(dressRepository.findByColorAndBrandAndSizeAndType(type, brand, color, size)
-                    .stream().collect(Collectors.toList()));
+            List<DressEntity> dressEntities = dressRepository.findByColorAndBrandAndSizeAndType(type, brand, color, size);
+            List<ShowDressDto> showDressDtos = dressEntities.stream()
+                    .map(dressMapper::entityToShowDressDto)
+                    .collect(Collectors.toList());
+            return showDressDtos;
         }
 
         if (size != null && type != null && brand != null) {
             if (notColor) {
-                return dressMapper.entityToShowDressDto(dressRepository.findByBrandAndTypeAndSizeNot(brand, type, size)
-                        .stream().collect(Collectors.toList()));
+                List<DressEntity> dressEntities = dressRepository.findByBrandAndTypeAndSizeNot(brand, type, size);
+                List<ShowDressDto> showDressDtos = dressEntities.stream()
+                        .map(dressMapper::entityToShowDressDto)
+                        .collect(Collectors.toList());
+                return showDressDtos;
             } else {
-                return dressMapper.entityToShowDressDto(dressRepository.findBySizeAndTypeAndBrandOrColor(size, type, brand, color)
-                        .stream().collect(Collectors.toList()));
+                List<DressEntity> dressEntities = dressRepository.findBySizeAndTypeAndBrandOrColor(size, type, brand, color);
+                List<ShowDressDto> showDressDtos = dressEntities.stream()
+                        .map(dressMapper::entityToShowDressDto)
+                        .collect(Collectors.toList());
+                return showDressDtos;
             }
             }
 
             if (priceBetween) {
-                return dressMapper.entityToShowDressDto(dressRepository.findByPriceBetween(lowerPrice, upperPrice)
-                        .stream().collect(Collectors.toList()));
+                List<DressEntity> dressEntities = dressRepository.findByPriceBetween(lowerPrice, upperPrice);
+                List<ShowDressDto> showDressDtos = dressEntities.stream()
+                        .map(dressMapper::entityToShowDressDto)
+                        .collect(Collectors.toList());
+                return showDressDtos;
             } else if (priceLessThanEqual) {
-                return dressMapper.entityToShowDressDto(dressRepository.findByPriceLessThanEqual(lowerPrice)
-                        .stream().collect(Collectors.toList()));
+                List<DressEntity> dressEntities = dressRepository.findByPriceLessThanEqual(lowerPrice);
+                List<ShowDressDto> showDressDtos = dressEntities.stream()
+                        .map(dressMapper::entityToShowDressDto)
+                        .collect(Collectors.toList());
+                return showDressDtos;
             } else if (priceGreaterThanEqual) {
-                return dressMapper.entityToShowDressDto(dressRepository.findByPriceGreaterThanEqual(upperPrice)
-                        .stream().collect(Collectors.toList()));
+                List<DressEntity> dressEntities = dressRepository.findByPriceGreaterThanEqual(upperPrice);
+                List<ShowDressDto> showDressDtos = dressEntities.stream()
+                        .map(dressMapper::entityToShowDressDto)
+                        .collect(Collectors.toList());
+                return showDressDtos;
             }
 
             // If no filters are provided, return all dresses
-            return dressMapper.entityToShowDressDto(dressRepository.findAll()
-                    .stream().collect(Collectors.toList()));
+            List<DressEntity> dressEntities = dressRepository.findAll();
+            List<ShowDressDto> showDressDtos = dressEntities.stream()
+                    .map(dressMapper::entityToShowDressDto)
+                    .collect(Collectors.toList());
+            return showDressDtos;
         }
     }
 

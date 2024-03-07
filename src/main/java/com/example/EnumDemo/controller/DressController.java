@@ -1,7 +1,7 @@
 package com.example.EnumDemo.controller;
 
 import com.example.EnumDemo.dto.DressDto;
-import com.example.EnumDemo.dto.showDressDto;
+import com.example.EnumDemo.dto.ShowDressDto;
 import com.example.EnumDemo.enumC.Color;
 import com.example.EnumDemo.enumC.Size;
 import com.example.EnumDemo.enumC.Type;
@@ -28,13 +28,13 @@ public class DressController {
     }
 
     @GetMapping()
-    public List<showDressDto> filterDresses(@RequestParam(required = false) List<Color> colors, @RequestParam(required = false) Color color,
-                                           @RequestParam(required = false) Size size, @RequestParam(required = false) Type type, @RequestParam(required = false) String brand,
-                                           @RequestParam(required = false) Double lowerPrice, @RequestParam(required = false) Double upperPrice,
-                                           @RequestParam(required = false, defaultValue = "false") boolean notColor,
-                                           @RequestParam(required = false, defaultValue = "false") boolean priceBetween,
-                                           @RequestParam(required = false, defaultValue = "false") boolean priceLessThanEqual,
-                                           @RequestParam(required = false, defaultValue = "false") boolean priceGreaterThanEqual) {
+    public List<ShowDressDto> filterDresses(@RequestParam(required = false) List<Color> colors, @RequestParam(required = false) Color color,
+                                            @RequestParam(required = false) Size size, @RequestParam(required = false) Type type, @RequestParam(required = false) String brand,
+                                            @RequestParam(required = false) Double lowerPrice, @RequestParam(required = false) Double upperPrice,
+                                            @RequestParam(required = false, defaultValue = "false") boolean notColor,
+                                            @RequestParam(required = false, defaultValue = "false") boolean priceBetween,
+                                            @RequestParam(required = false, defaultValue = "false") boolean priceLessThanEqual,
+                                            @RequestParam(required = false, defaultValue = "false") boolean priceGreaterThanEqual) {
         return dressService.filterDresses(colors, color, size, type, brand, lowerPrice, upperPrice, notColor,
                 priceBetween, priceLessThanEqual, priceGreaterThanEqual);
     }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class showDressDto {
+public class ShowDressDto {
     private String brand;
     private Color color;
     private Size size;
