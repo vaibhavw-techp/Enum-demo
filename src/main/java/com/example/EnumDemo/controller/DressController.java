@@ -19,9 +19,6 @@ public class DressController {
     @Autowired
     private DressService dressService;
 
-    @Autowired
-    private DressRepository dressRepository;
-
     @PostMapping
     public DressDto addDress(@RequestBody DressDto dressDto){
        return dressService.addDress(dressDto);

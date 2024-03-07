@@ -34,9 +34,4 @@ public interface DressMapper {
         return Size.rangeConversion(size);
     }
 
-    @Named("getDressSizeToLong")
-    default Long getDressSizeLong1(Size size){
-      return Size.getDressSizeLong1(size);
-    }
-
 }
